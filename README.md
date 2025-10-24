@@ -1,5 +1,4 @@
 # 🏥 Health Risk Prediction: Smoking & Drinking Analysis
-## Overview
 
 Data science project to predict smoking/drinking behaviors and cardiovascular risk using medical health check-up data. Apply ML techniques for preventive healthcare interventions.
 ## 🎯 Project Goals
