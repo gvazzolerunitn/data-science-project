@@ -7,130 +7,88 @@ Data science project to predict smoking/drinking behaviors and cardiovascular ri
 - Assess cardiovascular risk profiles
 - Provide actionable recommendations for healthcare providers
 
-## 📊 Dataset
 
-24 features from medical health check-ups:
-#### Demographics
+## 📊 Dataset Overview
 
-    sex: Male/Female
+The dataset contains 24 variables collected from medical check-ups. Below is a table listing each variable, its description, and value/unit:
 
-    age: 20-65 years
+| Variable             | Description                                         | Values/Units                        |
+|----------------------|-----------------------------------------------------|-------------------------------------|
+| **sex**              | Sex                                                 | Male / Female                       |
+| **age**              | Age                                                 | 20-65 years                         |
+| **height**           | Height                                              | cm                                  |
+| **weight**           | Weight                                              | kg                                  |
+| **waistline**        | Waist circumference (obesity indicator)             | cm                                  |
+| **sight_left/right** | Vision (left/right)                                 | 0.2-2.0 (normal=1.0)                |
+| **hear_left/right**  | Hearing (left/right)                                | 1=Normal, 2=Impaired                |
+| **SBP**              | Systolic blood pressure ⭐                           | mmHg (normal: 90-120)               |
+| **DBP**              | Diastolic blood pressure ⭐                          | mmHg (normal: 60-80)                |
+| **BLDS**             | Blood glucose ⭐                                     | mg/dL (normal: 70-100)              |
+| **tot_chole**        | Total cholesterol ⭐                                 | mg/dL (optimal: <200)               |
+| **HDL_chole**        | HDL cholesterol (good) ⭐                            | mg/dL (optimal: >40/50)             |
+| **LDL_chole**        | LDL cholesterol (bad) ⭐                             | mg/dL (optimal: <100)               |
+| **triglyceride**     | Triglycerides ⭐                                     | mg/dL (normal: <150)                |
+| **hemoglobin**       | Hemoglobin                                          | g/dL                                |
+| **urine_protein**    | Urine protein                                       | 1=Normal, 2-3=Elevated              |
+| **serum_creatinine** | Serum creatinine (kidney function)                  | mg/dL                               |
+| **SGOT_AST**         | AST (liver function) ⭐                              | U/L (normal: 10-40)                 |
+| **SGOT_ALT**         | ALT (liver function) ⭐                              | U/L (normal: 7-56)                  |
+| **gamma_GTP**        | Gamma-GT (alcohol biomarker) ⭐                      | U/L (normal: <55)                   |
+| **SMK_stat_type_cd** | Smoking status (target)                             | 1=Never, 2=Ex-smoker, 3=Current     |
+| **DRK_YN**           | Alcohol consumption (target)                        | Y=Drinker, N=Non-drinker            |
 
-#### Anthropometrics
+⭐ = key variables for cardiovascular/metabolic/liver risk
 
-    height: cm
 
-    weight: kg
-
-    waistline: waist circumference (cm) - obesity indicator
-
-#### Sensory
-
-    sight_left/right: vision (0.2-2.0, normal=1.0)
-
-    hear_left/right: hearing (1=Normal, 2=Impaired)
-
-#### Cardiovascular ⭐
-
-    SBP: Systolic BP (mmHg, normal: 90-120)
-
-    DBP: Diastolic BP (mmHg, normal: 60-80)
-
-#### Metabolic ⭐
-
-    BLDS: Blood glucose (mg/dL, normal: 70-100)
-
-    tot_chole: Total cholesterol (mg/dL, optimal: <200)
-
-    HDL_chole: Good cholesterol (mg/dL, optimal: >40/50)
-
-    LDL_chole: Bad cholesterol (mg/dL, optimal: <100)
-
-    triglyceride: Triglycerides (mg/dL, normal: <150)
-
-#### Hematological
-
-    hemoglobin: g/dL
-
-    urine_protein: 1=Normal, 2-3=Elevated
-
-    serum_creatinine: kidney function (mg/dL)
-
-#### Liver Function ⭐
-
-    SGOT_AST: AST (U/L, normal: 10-40)
-
-    SGOT_ALT: ALT (U/L, normal: 7-56)
-
-    gamma_GTP: Gamma-GT (U/L, normal: <55) - alcohol biomarker
-
-#### Target Variables 🎯
-
-    SMK_stat_type_cd: 1=Never, 2=Ex-smoker, 3=Current smoker
-
-    DRK_YN: Y=Drinker, N=Non-drinker
+---
 
 ## 🔄 Project Pipeline (CRISP-DM)
 
-```
-1. Business Understanding
-   → Define objectives, stakeholders, success metrics
+| Step                     | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| **1. Business Understanding**   | Define objectives, stakeholders, and success metrics                        |
+| **2. Data Understanding**       | Exploratory data analysis, data quality, patterns, correlations             |
+| **3. Data Preparation**         | Cleaning, feature engineering (BMI, risk scores), preprocessing             |
+| **4. Modeling**                 | Baseline: Logistic Regression, Decision Trees; Advanced: RF, XGBoost, NN    |
+| **5. Evaluation**               | Metrics: Accuracy, Precision, Recall, F1, ROC-AUC; feature importance       |
+| **6. Deployment**               | Implementation plan, monitoring KPIs, recommendations                       |
 
-2. Data Understanding
-   → EDA, data quality, patterns, correlations
+---
 
-3. Data Preparation
-   → Cleaning, feature engineering (BMI, risk scores), preprocessing
+## 🔍 Exploratory Data Analysis (EDA)
 
-4. Modeling
-   → Baseline: Logistic Regression, Decision Trees
-   → Advanced: Random Forest, XGBoost, Neural Networks
-   → Clustering: K-Means for patient segmentation
+**1. Univariate Analysis**
+  - Distributions (histograms, box plots)
+  - Statistics (mean, median, std)
+  - Outlier detection
+  - Missing values
 
-5. Evaluation
-   → Metrics: Accuracy, Precision, Recall, F1, ROC-AUC
-   → Feature importance, clinical interpretability
+**2. Bivariate Analysis**
+  - Correlation heatmap
+  - Smokers vs. non-smokers comparisons
+  - Drinkers vs. non-drinkers (focus on liver enzymes)
+  - Statistical tests (t-test, ANOVA)
 
-6. Deployment
-   → Implementation plan, monitoring KPIs, recommendations
-```
+**3. Multivariate Analysis**
+  - PCA for dimensionality reduction
+  - Clustering exploration
+  - Feature interactions
 
-## 🔍 EDA Structure
-#### 1. Univariate Analysis
-- Distributions (histograms, box plots)
-- Statistics (mean, median, std)
-- Outliers detection
-- Missing values
+**4. Feature Engineering**
+  - BMI = weight / (height/100)²
+  - Pulse Pressure = SBP - DBP
+  - Cholesterol Ratio = Total Cholesterol / HDL
+  - Liver Risk Score = f(AST, ALT, Gamma-GTP)
+  - Age groups, BP categories, cholesterol levels
 
-#### 2. Bivariate Analysis
-
-- Correlation heatmap
-- Smokers vs. non-smokers comparisons
-- Drinkers vs. non-drinkers (focus on liver enzymes)
-- Statistical tests (t-test, ANOVA)
-
-#### 3. Multivariate Analysis
-- PCA for dimensionality reduction
-- Clustering exploration
-- Feature interactions
-
-#### 4. Feature Engineering
-- BMI = weight / (height/100)²
-- Pulse_Pressure = SBP - DBP
-- Cholesterol_Ratio = Total Cholesterol / HDL
-- Liver_Risk_Score = f(AST, ALT, Gamma-GTP)
-- Age groups, BP categories, cholesterol levels
+---
 
 ## 🤖 Modeling Strategy
 
-#### Classification Tasks:
-- Smoking status (multi-class: 3 categories)
-- Drinking status (binary: Y/N)
-
-#### Clustering:
-- Patient risk segmentation
-
-#### Evaluation:
-- 5-fold cross-validation
-- Metrics: Accuracy, F1, ROC-AUC
-- SHAP values for interpretability
+| Task                | Description                                      |
+|---------------------|--------------------------------------------------|
+| **Classification**  | Smoking status (multi-class: 3 categories)       |
+|                     | Drinking status (binary: Y/N)                    |
+| **Clustering**      | Patient risk segmentation                        |
+| **Evaluation**      | 5-fold cross-validation, Accuracy, F1, ROC-AUC   |
+|                     | SHAP values for interpretability                 |
