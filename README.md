@@ -2,15 +2,11 @@
 ## Overview
 
 Data science project to predict smoking/drinking behaviors and cardiovascular risk using medical health check-up data. Apply ML techniques for preventive healthcare interventions.
-🎯 Project Goals
-
-    Predict smoking status from clinical parameters
-
-    Identify alcohol consumption using biomarkers
-
-    Assess cardiovascular risk profiles
-
-    Provide actionable recommendations for healthcare providers
+## 🎯 Project Goals
+- Predict smoking status from clinical parameters
+- Identify alcohol consumption using biomarkers
+- Assess cardiovascular risk profiles
+- Provide actionable recommendations for healthcare providers
 
 ## 📊 Dataset
 
