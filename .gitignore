@@ -1,3 +1,8 @@
+# excluding VSCode settings folder
 .vscode/
+
 # excluding sample projects
 /sample_projects/
+
+# excluding local data files
+/data/
