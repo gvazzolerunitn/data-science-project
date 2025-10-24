@@ -1,4 +1,3 @@
-.vscode/*
-
+.vscode/
 # excluding sample projects
-/sample-projects/*
+/sample_projects/
