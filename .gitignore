@@ -1,2 +1,4 @@
+.vscode/*
+
 # excluding sample projects
 /sample-projects/*
