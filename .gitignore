@@ -6,3 +6,9 @@
 
 # excluding local data files
 /data/
+
+# excluding the whole "doc" folder except for .tex and .pdf files
+/doc/*
+!/doc/
+!/doc/**/*.tex
+!/doc/**/*.pdf
