@@ -57,7 +57,7 @@
 
 % NTNU Logo
 \begin{center}
-\includegraphics[width=6cm]{images/NTNU_logo.png}
+\includegraphics[width=6cm]{../images/NTNU_logo.png}
 \end{center}
 
 \vspace{1.5cm}
@@ -225,7 +225,7 @@ The dataset includes two primary target variables for prediction: DRK\_YN, a bin
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/figure_3_1_class_distribution.png}
+    \includegraphics[width=0.95\textwidth]{../images/figure_3_1_class_distribution.png}
     \caption{Target variable distributions showing class imbalance patterns. The alcohol consumption task exhibits balanced classes (Non-drinkers: 50\%, Drinkers: 50\%), while the smoking status task shows significant class imbalance (Never: 60.8\%, Former: 17.6\%, Current: 21.6\%). This imbalance necessitated the implementation of stratified sampling and class weighting strategies during model training to ensure unbiased predictions across all categories.}
     \label{fig:class_distribution}
 \end{figure}
@@ -433,7 +433,7 @@ We compare feature importance across algorithms to identify consistently importa
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/figure_4_1_feature_importance_comparison.png}
+    \includegraphics[width=0.95\textwidth]{../images/figure_4_1_feature_importance_comparison.png}
     \caption{Comparative feature importance analysis across Random Forest and LightGBM models for both prediction tasks. Engineered features (WHtR, DeRitis\_Ratio, TotalChol\_HDL\_Ratio) consistently rank among the top predictors across both algorithms, validating the biological relevance of composite biomarkers. For alcohol prediction, gamma\_GTP emerges as the dominant feature, confirming its established role as the gold standard biomarker for alcohol consumption. For smoking prediction, hemoglobin and sexMale related features demonstrate high importance, aligning with known physiological adaptations to chronic smoking exposure.}
     \label{fig:feature_importance}
 \end{figure}
@@ -532,7 +532,7 @@ All three algorithms demonstrated strong performance for binary alcohol consumpt
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{images/figure_5_1_confusion_matrix_alcohol.png}
+    \includegraphics[width=0.75\textwidth]{../images/figure_5_1_confusion_matrix_alcohol.png}
     \caption{Confusion matrix for LightGBM alcohol consumption prediction on test set. The model demonstrates balanced performance across both classes with 71,955 true negatives (non-drinkers correctly identified) and 73,903 true positives (drinkers correctly identified). Misclassification is symmetrical with 23,903 false positives and 21,585 false negatives, indicating no systematic bias toward either class. The diagonal dominance confirms the model's 74\% accuracy and validates its reliability for practical deployment in lifestyle risk assessment.}
     \label{fig:confusion_matrix_alcohol}
 \end{figure}
@@ -977,7 +977,7 @@ To support effective oversight and rapid response to emerging issues, a producti
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/figure_7_1_calibration_plots.png}
+    \includegraphics[width=0.95\textwidth]{../images/figure_7_1_calibration_plots.png}
     \caption{Calibration curves for LightGBM models demonstrating excellent probability calibration for both prediction tasks. The alcohol prediction model (left) achieves a calibration error of 0.0050, while the smoking prediction model (right) achieves 0.0174, both well below the 0.10 threshold for reliable clinical deployment. The predicted probabilities closely track the diagonal reference line (perfectly calibrated classifier), indicating that when the model predicts a 70\% probability of alcohol consumption, approximately 70\% of those patients are actual drinkers. This calibration quality is critical for clinical decision-making, as it ensures predicted risk scores can be directly interpreted as reliable probability estimates for counseling and intervention prioritization.}
     \label{fig:calibration_plots}
 \end{figure}
